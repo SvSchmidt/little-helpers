@@ -13,6 +13,8 @@ function checkConsole() {
 	}
 }
 
+/*------------------------------------*/
+
 /**
  * does exactly what function name suggests
  * @param  {String} str
@@ -23,12 +25,20 @@ String.prototype.capitaliseFirstLetter = function() {
 }
 /*"test".capitaliseFirstLetter()*/
 
+QUnit.test("str.capitaliseFirstLetter()",function() {
+	equal("test".capitaliseFirstLetter(),"Test","convert test into Test");
+});
+
+/*------------------------------------*/
+
 DOMTokenList.prototype.removeAll = function() {
 	for(index in this) {
 		if(typeof this[index] === "string") this.remove(this[index]);
 	}
 }
 /*document.documentElement.classList.removeAll()*/
+
+/*------------------------------------*/
 
 Object.prototype.toArray = function(arrayVal) {
 	return [obj].map(function(index) {
@@ -37,6 +47,8 @@ Object.prototype.toArray = function(arrayVal) {
 }
 /*var obj = {name:"sven"};
 obj.toArray("name")*/
+
+/*------------------------------------*/
 
 /**
  * check whether classList appears in given DOMObject or not
@@ -53,3 +65,11 @@ Object.prototype.hasClasses = function(classList) {
 	return true;
 }
 /*document.documentElement.hasClasses("class1 class2 ...")*/
+
+QUnit.test("Object.prototype.hasClasses(classList)",function() {
+	ok(document.documentElement.hasClasses("js"),"return true if element does have specified class(es)");
+	ok(document.documentElement.hasClasses("js root-section"),"handle class list as string (e.g. 'class1 class2')");
+	ok(document.documentElement.hasClasses(["js","root-section"]),"handle class list as array (e.g. ['class1','class2'])");
+	ok(!document.documentElement.hasClasses("js root-section bullshit"),"return false if one class of classList is missing in element (all-or-none)")
+	ok(!document.documentElement.hasClasses("stupid classes"),"return false if element does not have specified class(es)")
+});
