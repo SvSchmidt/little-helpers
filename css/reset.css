@@ -1,13 +1,15 @@
 /**
  * @filename        reset.css
- * @description     reset some css attributes in order to start from the same starting position each time
- *                  coding new websites and tell IE how to render HTML5 elements
- * @version         v1.1.0
+ * @description     Nowadays different browsers have their ownesses regarding to rendering HTML as well as web's 		                   changes with every day passing. That means the developer has to deal with elements or rules 
+                    propably not known by ancient browsers or rendered differently in Chrome and Firefox and so on. And, of course, every dev has his own preferences and standard classes he wishes to use every time. That's why there's need as a developer to define a bunch of standard rules based on that ownesses as well as personal preferences to have a fixed status quo to start the developing process at and not to reinvent the wheel again and again.
+ * @version         v2.0.0
  * @author          Sven Schmidt
- * @date            2014/06/23
+ * @licence			public
+ * @date            2014/06/25
+ * @changelog		added some standard classes (clearfix, left/right etc.), organized stuff in groups, removed 						   deprecated elements, added some more reset based on personal preferences
  */
 
-/*Reset*/
+/*Universal selector reset*/
 
 * {
 	margin:0;
@@ -16,6 +18,9 @@
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 }
+
+/*END Universal selector reset*/
+/*Basics*/
 
 html,
 body {
@@ -39,12 +44,11 @@ h1,h2,h3,h4,h5,h6,p,blockquote,pre,
 abbr,address,cite,code,
 del,dfn,em,img,ins,kbd,q,samp,
 small,strong,sub,sup,var,
-b,i,
-dl,dt,dd,ol,ul,li,
+b,i,dl,dt,dd,ol,ul,li,a,
 fieldset,form,label,legend,
 table,caption,tbody,tfoot,thead,tr,th,td,
 article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
+footer,header,menu,nav,section,summary,
 time,mark,audio,video {
 	outline:0;
 	border:0;
@@ -55,43 +59,45 @@ time,mark,audio,video {
 	background:transparent;
 }
 
-article,
+/*END Basics*/
+/*correct block display not defined in some ancient browsers*/
+
 aside,
+article,
 details,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
+hr,
 menu,
 nav,
 section,
-summary,
-hr {  
+summary {
 	display:block;
 }
 
-time,
-command,
-datalist,
-details,
-embed,
-input,
-keygen,
-mark,
-progress,
-{
-	display:inline;
+/*END correct block display not defined in some ancient browsers*/
+/*correct inline-block display not defined in some ancient browsers*/
+
+audio,
+video,
+canvas {
+	display:inline-block;
 }
+
+/*END correct inline-block display not defined in some ancient browsers*/
+/*Typography*/
 
 strong,
 b {
 	font-weight:bold;
-	/*font-size:90%;*/
+	font-size:0.95em; /*for better readability*/
 }
 
 em,
-i {
+i,
+dfn {
 	font-style:italic;
 }
 
@@ -100,23 +106,66 @@ s {
 	text-decoration:line-through;
 }
 
-pre[class] {
-	margin:10px 0;
+abbr[title],
+dfn[title] {
+	cursor:help;
+	border-bottom:1px dotted;
 }
 
-article ul,
-article ol {
-	margin-left:40px;
-	padding:5px;
+pre {
+	white-space:pre;
+	white-space:pre-wrap;
+	word-wrap:break-word;
+	margin:1em 0;
 }
 
-nav ul {
-	list-style:none;
+small  {
+	font-size:75%;
 }
 
-details summary:empty {
-	display:none;
+sub,
+sup {
+	font-size:75%;
+	line-height:0;
+	position:relative;
+	vertical-align:baseline;
 }
+
+/*END Typography*/
+/*Horizontal Line*/
+
+hr {
+	height:1px;
+	border-top:1px solid #ccc; 
+	margin:1em 0;
+}
+
+/*END Horizontal Line*/
+/*Links*/
+
+a:focus {
+	outline:thin dotted;
+}
+
+a {
+	text-decoration:none;
+}
+
+a:hover,
+a:active {
+	text-decoration:underline;
+	outline:0;
+}
+
+/*END Links*/
+/*limit img width to make them responsive*/
+
+img {
+	max-width:100%;
+}
+
+/*END limit img width to make them responsive*/
+/*Headings*/
 
 h1,
 h2,
@@ -127,43 +176,27 @@ h6 {
 	font-weight:bold;
 }
 
-a { 
-	font-size:1em;
-	vertical-align:baseline; 
-	background:transparent; 
-	outline:0;
+/*END Headings*/
+/*Lists*/
+
+article ul,
+article ol {
+	margin-left:4em;
+	padding:0.5em;
 }
 
-img {
-	max-width:100%;
+nav ul,
+nav ol {
+	list-style:none;
+	list-style-image:none;
 }
 
-hr {
-	height:1px;
-	border:0; 
-	border-top:1px solid #ccc; 
-	margin:1em 0;
-	padding:0;
-}
-
-input,
-select { 
-	vertical-align:middle; 
-}
-
-textarea,
-input {
-	outline:0;
-}
+/*END Lists*/
+/*quotation*/
 
 blockquote,
 q {
 	quotes:none;
-}
-
-table {
-	border-collapse:collapse;
-	border-spacing:0;
 }
 
 blockquote:before,
@@ -173,11 +206,92 @@ q:after {
 	content:"";
 	content:none;
 }
-	
-abbr[title],
-dfn[title] {
-	cursor:help;
-	text-decoration:dotted;
+
+/*END quotation*/
+/*Table*/
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
 }
 
-/*End Reset*/	
+/*END Table*/
+/*Forms, inputs*/
+
+input,
+select { 
+	vertical-align:middle; 
+}
+
+button[disabled],
+input[disabled] {
+	cursor:default;
+}
+
+textarea {
+	overflow:auto;
+	vertical-align:top;
+}
+
+/*END Forms, inputs*/
+/*some other stuff / standard classes*/
+
+audio:not([controls]) {
+	/*prevent browsers from displaying <audio> without controls*/
+	display:none;
+	height:0;
+}
+
+[hidden],
+.hidden {
+	display:none;
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+
+.clear {
+	clear:both;
+}
+
+/*
+Why use clearfix?
+imagine the following markup:
+<article>
+	<div class="left">hello world</div>
+	<div class="right">lorem ipsum</div>
+</article>
+<article>
+	<div class="left">hello world</div>
+	<div class="right">lorem ipsum</div>
+</article>
+
+I want to add a top-margin to every article. The problem is that the article by default does not fit the height of its siblings because they're floating so adding a margin will cause problems. Adding .clearfix to every article solves that problem.
+*/
+.clearfix:after {
+	content:".";
+	display:block;
+	clear:both;
+	visibility:hidden;
+	line-height:0;
+	height:0;
+}
+
+.clearfix {
+	display:inline-block;
+}
+
+html[xmlns] .clearfix {
+	display:block;
+}
+
+* html .clearfix {
+	height:1%;
+}
+
+/*END some other stuff / standard classes*/
