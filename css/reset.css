@@ -1,11 +1,16 @@
 /**
  * @filename        reset.css
- * @description     Nowadays different browsers have their ownesses regarding to rendering HTML as well as web's 		                   changes with every day passing. That means the developer has to deal with elements or rules 
-                    propably not known by ancient browsers or rendered differently in Chrome and Firefox and so on. And, of course, every dev has his own preferences and standard classes he wishes to use every time. That's why there's need as a developer to define a bunch of standard rules based on that ownesses as well as personal preferences to have a fixed status quo to start the developing process at and not to reinvent the wheel again and again.
- * @version         v2.0.0
+ * @description     Nowadays different browsers have their ownesses regarding to rendering HTML as well as web's 	
+ 	            changes with every day passing. That means the developer has to deal with elements or rules 
+                    propably not known by ancient browsers or rendered differently in Chrome and Firefox and so on. 
+                    And, of course, every dev has his own preferences and standard classes he wishes to use every time.
+                    That's why there's need as a developer to define a bunch of standard rules based on that ownesses 
+                    as well as personal preferences to have a fixed status quo to start the developing process at and 
+                    not to reinvent the wheel again and again.
+ * @version         v2.0.1
  * @author          Sven Schmidt
  * @licence			public
- * @date            2014/06/25
+ * @date            2014/06/28
  * @changelog		added some standard classes (clearfix, left/right etc.), organized stuff in groups, removed 						   deprecated elements, added some more reset based on personal preferences
  */
 
@@ -37,6 +42,7 @@ html {
 body {
 	font-size:1rem;
 	line-height:1;
+	color:#333;
 }
 
 html,body,div,span,object,iframe,
@@ -136,6 +142,7 @@ sup {
 
 hr {
 	height:1px;
+	border:0;
 	border-top:1px solid #ccc; 
 	margin:1em 0;
 }
