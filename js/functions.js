@@ -127,3 +127,9 @@ QUnit.test("vendorPrefix(attribute)",function() {
 	equal(vendorPrefix("transform"),"WebkitTransform","prefix the attribute if provided");
 	equal(vendorPrefix("transition"),"transition","do not prefix the attribute if the browser knows both the variant with and without prefix (e.g. transition)");
 });
+
+/*------------------------------------*/
+
+function isInteger(x) {
+	return (Math.round(x) === x);
+}
