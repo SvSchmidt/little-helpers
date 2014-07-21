@@ -1,4 +1,4 @@
-/**
+ /**
  * checks whether the console-object exists or not, defines an empty console-object to prevent errors if not
  * @return {void} 
  */
@@ -40,6 +40,22 @@ DOMTokenList.prototype.removeAll = function() {
 
 /*------------------------------------*/
 
+/**
+ * search for needle in haystack
+ * @param  {String} needle   String to search for
+ * @param  {Array} haystack array to scan for needle
+ * @return {Number / boolean}          key of needle in haystack if exists, false otherwise
+ */
+function inArray(needle,haystack) {
+	for(var i = 0; i < haystack.length; i++) {
+		if(haystack[i] == needle) return i;
+	}
+
+	return false;
+}
+
+/*------------------------------------*/
+
 Object.prototype.toArray = function(arrayVal) {
 	return [obj].map(function(index) {
 		return index[arrayVal];
@@ -64,15 +80,6 @@ Object.prototype.hasClasses = function(classList) {
 
 	return true;
 }
-/*document.documentElement.hasClasses("class1 class2 ...")*/
-
-QUnit.test("Object.prototype.hasClasses(classList)",function() {
-	ok(document.documentElement.hasClasses("js"),"return true if element does have specified class(es)");
-	ok(document.documentElement.hasClasses("js root-section"),"handle class list as string (e.g. 'class1 class2')");
-	ok(document.documentElement.hasClasses(["js","root-section"]),"handle class list as array (e.g. ['class1','class2'])");
-	ok(!document.documentElement.hasClasses("js root-section bullshit"),"return false if one class of classList is missing in element (all-or-none)")
-	ok(!document.documentElement.hasClasses("stupid classes"),"return false if element does not have specified class(es)")
-});
 
 /*------------------------------------*/
 
@@ -133,3 +140,47 @@ QUnit.test("vendorPrefix(attribute)",function() {
 function isInteger(x) {
 	return (Math.round(x) === x);
 }
+
+QUnit.test("isInteger(x)",function() {
+	ok(isInteger(1),"1 is an integer");
+	ok(isInteger(-1),"so is -1");
+	ok(isInteger(0),"so is 0");
+	ok(!isInteger(1.2),"1.2 isn't");
+	ok(!isInteger("1"),"'1' isn't");
+	ok(!isInteger(undefined),"undefined isn't");
+	ok(!isInteger(null),"null isn't");
+	ok(!isInteger(false),"false isn't");
+});
+
+/*------------------------------------*/
+
+function isPositiveNumber(x) {
+	if(typeof x !== "number") return false;
+	return ((-1 * x) <= 0);
+}
+
+QUnit.test("isPositiveNumber(x)",function() {
+	ok(isPositiveNumber(1),"1 is positive");
+	ok(isPositiveNumber(0),"so is 0");
+	ok(isPositiveNumber(1.2),"so is 1.2");
+	ok(!isPositiveNumber(-1),"-1 isn't");
+	ok(!isPositiveNumber("1"),"'1' isn't")
+	ok(!isPositiveNumber(undefined),"undefined isn't");
+	ok(!isPositiveNumber(null),"null isn't");
+	ok(!isPositiveNumber(false),"false isn't");
+});
+
+/*------------------------------------*/
+
+function isEvenNumber(x) {
+	if(typeof x !== "number") return false;
+	return x === 1 || x % 2 === 0;
+}
+
+QUnit.test("isEvenNumber",function() {
+	ok(isEvenNumber(2),"2 is even");
+	ok(isEvenNumber(1),"1 isn't");
+	ok(isEvenNumber(0),"0 is");
+	ok(!isEvenNumber(null),"null isn't");
+	ok(!isEvenNumber(false),"false isn't");
+});
