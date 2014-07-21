@@ -184,3 +184,20 @@ QUnit.test("isEvenNumber",function() {
 	ok(!isEvenNumber(null),"null isn't");
 	ok(!isEvenNumber(false),"false isn't");
 });
+
+/**
+ * checks whether an element is in viewport or not
+ * @param  {DOMElement} elem Element to check viewport presence for
+ * @return {Boolean}      true if elem is in viewport, false if not
+ */
+function elementInViewport(elem) {
+	if(!elem) return false;
+	var rect = elem.getBoundingClientRect();
+
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+	);
+}
