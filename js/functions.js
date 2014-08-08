@@ -132,15 +132,15 @@ QUnit.test("navigator.supports(attribute)",function() {
  * @return {String} vendor-prefix (e.g. Webkit) or vendor-prefixed attribute (e.g. WebkitTransform)
  */
 function vendorPrefix(attribute) {
-	var vendorPrefix = (Array.prototype.slice.call(window.getComputedStyle(document.documentElement,""))).join("").match(/-(moz|webkit|ms)-/);
+	var result = (Array.prototype.slice.call(window.getComputedStyle(document.documentElement,""))).join("").match(/-(moz|webkit|ms)-/);
 	var objResult = {
 		"prefix": {
-			"css":vendorPrefix[0],
-			"js":vendorPrefix[1].capitalizeFirstLetter(),
+			"css":result[0],
+			"js":result[1].capitalizeFirstLetter(),
 		},
 		"attribute": {
-			"css":vendorPrefix[0] + attribute,
-			"js":vendorPrefix[1].capitalizeFirstLetter() + (attribute ? attribute.capitalizeFirstLetter() : "")
+			"css":result[0] + attribute,
+			"js":result[1].capitalizeFirstLetter() + (attribute ? attribute.capitalizeFirstLetter() : "")
 		}
 	};
 
