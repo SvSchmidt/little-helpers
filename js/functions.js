@@ -7,8 +7,7 @@ function checkConsole() {
 		console = {
 			log:function() {},
 			debug:function() {},
-			error:function() {},
-			debug:function() {}
+			error:function() {}
 		};
 	}
 }
@@ -22,7 +21,7 @@ function checkConsole() {
  */
 String.prototype.capitalizeFirstLetter = function() {
 	return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
 /*"test".capitaliseFirstLetter()*/
 
 QUnit.test("str.capitalizeFirstLetter()",function() {
@@ -55,10 +54,10 @@ HTMLElement.prototype.addEvent = addEvent;
 /*------------------------------------*/
 
 DOMTokenList.prototype.removeAll = function() {
-	for(index in this) {
+	for(var index in this) {
 		if(typeof this[index] === "string") this.remove(this[index]);
 	}
-}
+};
 /*document.documentElement.classList.removeAll()*/
 
 /*------------------------------------*/
@@ -83,7 +82,7 @@ Object.prototype.toArray = function(arrayVal) {
 	return [obj].map(function(index) {
 		return index[arrayVal];
 	});
-}
+};
 /*var obj = {name:"sven"};
 obj.toArray("name")*/
 
@@ -102,7 +101,7 @@ Object.prototype.hasClasses = function(classList) {
 	}
 
 	return true;
-}
+};
 
 /*------------------------------------*/
 
@@ -117,7 +116,7 @@ navigator.supports = function(attribute) {
 	}
 
 	return false;
-}
+};
 
 QUnit.test("navigator.supports(attribute)",function() {
 	ok(navigator.supports("color"),"return true if used browser knows specified attribute respecting vendorprefixes");
@@ -143,7 +142,7 @@ function vendorPrefix(attribute) {
 			"css":vendorPrefix[0] + attribute,
 			"js":vendorPrefix[1].capitalizeFirstLetter() + (attribute ? attribute.capitalizeFirstLetter() : "")
 		}
-	}
+	};
 
 	if(typeof window.getComputedStyle(document.documentElement)[attribute] === "string") return attribute;
 	if(typeof window.getComputedStyle(document.documentElement)[objResult.attribute.css] === "string") return objResult.attribute.js;
@@ -187,7 +186,7 @@ QUnit.test("isPositiveNumber(x)",function() {
 	ok(isPositiveNumber(0),"so is 0");
 	ok(isPositiveNumber(1.2),"so is 1.2");
 	ok(!isPositiveNumber(-1),"-1 isn't");
-	ok(!isPositiveNumber("1"),"'1' isn't")
+	ok(!isPositiveNumber("1"),"'1' isn't");
 	ok(!isPositiveNumber(undefined),"undefined isn't");
 	ok(!isPositiveNumber(null),"null isn't");
 	ok(!isPositiveNumber(false),"false isn't");
