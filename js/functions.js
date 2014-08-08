@@ -31,6 +31,12 @@ QUnit.test("str.capitalizeFirstLetter()",function() {
 
 /*------------------------------------*/
 
+/**
+ * improved function to add events to objects differing between attachEvent (< IE 8) and addEventEventListener	
+ * @param {String}   eventType  event name to be attached (e.g. click, scroll)
+ * @param {Function} fn         handler to call on event
+ * @param {Boolean}   useCapture
+ */
 var addEvent = function(eventType,fn,useCapture) {
     if(this.addEventListener) {
         this.addEventListener(eventType,fn,useCapture);
