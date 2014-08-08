@@ -40,10 +40,12 @@ QUnit.test("str.capitalizeFirstLetter()",function() {
 var addEvent = function(eventType,fn,useCapture) {
     if(this.addEventListener) {
         this.addEventListener(eventType,fn,useCapture);
+        return true;
     } else if(this.attachEvent) {
         var ret = this.attachEvent("on" + eventType,fn);
         return ret;
     }
+    return false;
 };
 
 Window.prototype.addEvent = addEvent;
