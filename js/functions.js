@@ -31,6 +31,17 @@ QUnit.test("str.capitalizeFirstLetter()",function() {
 
 /*------------------------------------*/
 
+HTMLObjectElement.prototype.addEvent = function(eventType,fn,useCapture) {
+    if(this.addEventListener) {
+        obj.addEventListener(eventType,fn,useCapture);
+    } else if(this.attachEvent) {
+        var ret = this.attachEvent("on" + eventType,fn);
+        return ret;
+    }
+};
+
+/*------------------------------------*/
+
 DOMTokenList.prototype.removeAll = function() {
 	for(index in this) {
 		if(typeof this[index] === "string") this.remove(this[index]);
