@@ -31,14 +31,18 @@ QUnit.test("str.capitalizeFirstLetter()",function() {
 
 /*------------------------------------*/
 
-HTMLElement.prototype.addEvent = function(eventType,fn,useCapture) {
+var addEvent = function(eventType,fn,useCapture) {
     if(this.addEventListener) {
-        obj.addEventListener(eventType,fn,useCapture);
+        this.addEventListener(eventType,fn,useCapture);
     } else if(this.attachEvent) {
         var ret = this.attachEvent("on" + eventType,fn);
         return ret;
     }
 };
+
+Window.prototype.addEvent = addEvent;
+Document.prototype.addEvent = addEvent;
+HTMLElement.prototype.addEvent = addEvent;
 
 /*------------------------------------*/
 
