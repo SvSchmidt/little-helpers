@@ -31,7 +31,7 @@ QUnit.test("str.capitalizeFirstLetter()",function() {
 
 /*------------------------------------*/
 
-HTMLObjectElement.prototype.addEvent = function(eventType,fn,useCapture) {
+HTMLElement.prototype.addEvent = function(eventType,fn,useCapture) {
     if(this.addEventListener) {
         obj.addEventListener(eventType,fn,useCapture);
     } else if(this.attachEvent) {
