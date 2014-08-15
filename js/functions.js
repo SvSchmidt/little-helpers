@@ -207,6 +207,8 @@ QUnit.test("isEvenNumber",function() {
 	ok(!isEvenNumber(false),"false isn't");
 });
 
+/*------------------------------------*/
+
 /**
  * checks whether an element is in viewport or not
  * @param  {DOMElement} elem Element to check viewport presence for
@@ -222,4 +224,25 @@ function elementInViewport(elem) {
 		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
 		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
 	);
+}
+
+/*------------------------------------*/
+
+function is(type,obj) {
+	return (obj !== undefined && obj !== null && Object.prototype.toString.call(obj).slice(8,-1) === type);
+}
+
+QUnit.test("is(type,obj)",function() {
+	ok(is("Array",[]),"[] is Array");
+	ok(is("Function",is),"is is Function");
+	ok(is("String","test"),"test is String");
+	ok(is("Number",2),"2 is Number");
+	ok(is("Number",Math.PI),"Math.PI is Number");
+	ok(is("Boolean",true),"true is Boolean");
+	ok(!is("Boolean",null),"null isn't");
+	ok(!is("Boolean",undefined),"so is undefined");
+});
+
+function isArray(obj) {
+	return is("Array",obj);
 }
