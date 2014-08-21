@@ -132,16 +132,17 @@ QUnit.test("navigator.supports(attribute)",function() {
  * @return {String} vendor-prefix (e.g. Webkit) or vendor-prefixed attribute (e.g. WebkitTransform)
  */
 function vendorPrefix(attribute) {
-	var result = (Array.prototype.slice.call(window.getComputedStyle(document.documentElement,""))).join("").match(/-(moz|webkit|ms)-/);
+	var vendorPrefix = (Array.prototype.slice.call(window.getComputedStyle(document.documentElement,""))).join("").match(/-(moz|webkit|ms)-/);
 
-	if(typeof window.getComputedStyle(document.documentElement)[attribute] === "string") return attribute;
-	if(typeof window.getComputedStyle(document.documentElement)[result[0] + attribute] === "string") {
+	if(typeof window.getComputedStyle(document.documentElement)[attribute] === "string") {
+		return attribute;
+	} else if(typeof window.getComputedStyle(document.documentElement)[vendorPrefix[0] + attribute] === "string") {
 		var attributeJS = "";
 		 Array.prototype.forEach.call(String.prototype.split.call(attribute,"-"),function(val) { attributeJS += val.capitalizeFirstLetter(); });
-		 return result[1].capitalizeFirstLetter() + attributeJS;
+		 return vendorPrefix[1].capitalizeFirstLetter() + attributeJS;
 	}
-
-	return result[1].capitalizeFirstLetter();
+	
+	return vendorPrefix[1].capitalizeFirstLetter();
 }
 
 QUnit.test("vendorPrefix(attribute)",function() {
