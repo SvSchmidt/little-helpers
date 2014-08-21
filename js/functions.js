@@ -133,27 +133,21 @@ QUnit.test("navigator.supports(attribute)",function() {
  */
 function vendorPrefix(attribute) {
 	var result = (Array.prototype.slice.call(window.getComputedStyle(document.documentElement,""))).join("").match(/-(moz|webkit|ms)-/);
-	var objResult = {
-		"prefix": {
-			"css":result[0],
-			"js":result[1].capitalizeFirstLetter(),
-		},
-		"attribute": {
-			"css":result[0] + attribute,
-			"js":result[1].capitalizeFirstLetter() + (attribute ? attribute.capitalizeFirstLetter() : "")
-		}
-	};
 
 	if(typeof window.getComputedStyle(document.documentElement)[attribute] === "string") return attribute;
-	if(typeof window.getComputedStyle(document.documentElement)[objResult.attribute.css] === "string") return objResult.attribute.js;
+	if(typeof window.getComputedStyle(document.documentElement)[result[0] + attribute] === "string") {
+		var attributeJS = "";
+		 Array.prototype.forEach.call(String.prototype.split.call(attribute,"-"),function(val) { attributeJS += val.capitalizeFirstLetter(); });
+		 return result[1].capitalizeFirstLetter() + attributeJS;
+	}
 
-	return objResult.prefix.js;
+	return result[1].capitalizeFirstLetter();
 }
 
 QUnit.test("vendorPrefix(attribute)",function() {
 	equal(vendorPrefix(),"Webkit","return vendorprefix (WebKit) if no attribute's provided");
 	equal(vendorPrefix("ffjfjaf"),"Webkit","do so too if prefixed attribute is unknown to browser");
-	equal(vendorPrefix("transform"),"WebkitTransform","prefix the attribute if provided");
+	equal(vendorPrefix("user-drag"),"WebkitUserDrag","prefix the attribute if provided and handle hyphens");
 	equal(vendorPrefix("transition"),"transition","do not prefix the attribute if the browser knows both the variant with and without prefix (e.g. transition)");
 });
 
