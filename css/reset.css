@@ -1,7 +1,7 @@
 /**
  * @filename        reset.css
- * @description     Nowadays different browsers have their ownesses regarding to rendering HTML as well as web's 	
- 	                changes with every day passing. That means the developer has to deal with elements or rules 
+ * @description     Nowadays different browsers have their ownesses regarding to rendering HTML as well as web's    
+                    changes with every day passing. That means the developer has to deal with elements or rules 
                     propably not known by ancient browsers or rendered differently in Chrome and Firefox and so on. 
                     And, of course, every dev has his own preferences and standard classes he wishes to use every time.
                     That's why there's need as a developer to define a bunch of standard rules based on that ownesses 
@@ -9,28 +9,35 @@
                     not to reinvent the wheel again and again.
  * @version         v2.1.0
  * @author          Sven Schmidt
- * @licence			public
+ * @licence         public
  * @date            2014/07/01
- * @changelog		added some standard classes (clearfix, left/right etc.), organized stuff in groups, removed 						   deprecated elements, added some more reset based on personal preferences
+ * @changelog       added some standard classes (clearfix, left/right etc.), organized stuff in groups, removed                            deprecated elements, added some more reset based on personal preferences
  */
 
-/*Universal selector reset*/
+/*------------------------------------*\
+    #UniversalSelectorReset
+\*------------------------------------*/
 
 * {
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
 }
 
-/*END Universal selector reset*/
-/*Basics*/
+
+
+
+
+/*------------------------------------*\
+    #Basics
+\*------------------------------------*/
 
 html,
 body {
-	width:100%;
-	height:100%;
+    width:100%;
+    height:100%;
 }
 
 html,body,div,span,object,iframe,
@@ -44,28 +51,33 @@ table,caption,tbody,tfoot,thead,tr,th,td,
 article,aside,canvas,details,figcaption,figure,
 footer,header,menu,nav,section,summary,
 time,mark,audio,video {
-	outline:0;
-	border:0;
-	font-weight:inherit;
-	font-style:inherit;
-	font-size:1em;
-	vertical-align:baseline;
-	background:transparent;
+    outline:0;
+    border:0;
+    font-weight:inherit;
+    font-style:inherit;
+    font-size:1em;
+    vertical-align:baseline;
+    background:transparent;
 }
 
 html {
-	font-size:62.5%;
-	direction:ltr;
-	overflow-y:scroll;
+    font-size:62.5%;
+    direction:ltr;
+    overflow-y:scroll;
 }
-	
+    
 body {
-	line-height:1;
-	color:#333;
+    line-height:1;
+    color:#333;
 }
 
-/*END Basics*/
-/*correct block display not defined in some ancient browsers*/
+
+
+
+
+/*----------------------------------------------------------------*\
+    correct block display not defined in some ancient browsers
+\*----------------------------------------------------------------*/
 
 aside,
 article,
@@ -80,99 +92,129 @@ menu,
 nav,
 section,
 summary {
-	display:block;
+    display:block;
 }
 
-/*END correct block display not defined in some ancient browsers*/
-/*correct inline-block display not defined in some ancient browsers*/
+
+
+
+
+/*-------------------------------------------------------------------*\
+    correct inline-block display not defined in some ancient browsers
+\*-------------------------------------------------------------------*/
 
 audio,
 video,
 canvas {
-	display:inline-block;
+    display:inline-block;
 }
 
-/*END correct inline-block display not defined in some ancient browsers*/
-/*Typography*/
+
+
+
+
+/*------------------------------------*\
+    #Typography
+\*------------------------------------*/
 
 strong,
 b {
-	font-weight:bold;
-	font-size:0.95em; /*for better readability*/
+    font-weight:bold;
+    font-size:0.95em; /*for better readability*/
 }
 
 em,
 i,
 dfn {
-	font-style:italic;
+    font-style:italic;
 }
 
 del,
 s {
-	text-decoration:line-through;
+    text-decoration:line-through;
 }
 
 abbr[title],
 dfn[title] {
-	cursor:help;
-	border-bottom:1px dotted;
+    cursor:help;
+    border-bottom:1px dotted;
 }
 
 pre {
-	white-space:pre;
-	white-space:pre-wrap;
-	word-wrap:break-word;
-	margin:1em 0;
+    white-space:pre;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    margin:1em 0;
 }
 
 small  {
-	font-size:75%;
+    font-size:75%;
 }
 
 sub,
 sup {
-	font-size:75%;
-	line-height:0;
-	position:relative;
-	vertical-align:baseline;
+    font-size:75%;
+    line-height:0;
+    position:relative;
+    vertical-align:baseline;
 }
 
-/*END Typography*/
-/*Horizontal Line*/
+
+
+
+
+/*------------------------------------*\
+    #HorizontalLine
+\*------------------------------------*/
 
 hr {
-	height:1px;
-	border:0;
-	border-top:1px solid #ccc; 
-	margin:1em 0;
+    height:1px;
+    border:0;
+    border-top:1px solid currentcolor; 
+    margin:1em 0;
 }
 
-/*END Horizontal Line*/
-/*Links*/
+
+
+
+
+/*------------------------------------*\
+    #Links
+\*------------------------------------*/
 
 a:focus {
-	outline:thin dotted;
+    outline:thin dotted;
 }
 
 a {
-	text-decoration:none;
+    text-decoration:none;
 }
 
 a:hover,
 a:active {
-	text-decoration:underline;
-	outline:0;
+    text-decoration:underline;
+    outline:0;
 }
 
-/*END Links*/
-/*limit img width to make them responsive*/
+
+
+
+
+/*------------------------------------*\
+    #Img
+\*------------------------------------*/
 
 img {
-	max-width:100%;
+    max-width:100%;
 }
 
-/*END limit img width to make them responsive*/
-/*Headings*/
+
+
+
+
+/*------------------------------------*\
+    #Headings
+\*------------------------------------*/
 
 h1,
 h2,
@@ -180,125 +222,156 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight:bold;
+    font-weight:bold;
 }
 
-/*END Headings*/
-/*Lists*/
 
-article ul,
-article ol {
-	margin-left:4em;
-	padding:0.5em;
+
+
+
+/*------------------------------------*\
+    #Lists
+\*------------------------------------*/
+
+ul,
+ol {
+    margin-left:4em;
+    padding:0.5em;
 }
 
 nav ul,
 nav ol {
-	list-style:none;
-	list-style-image:none;
+    list-style:none;
+    list-style-image:none;
 }
 
-/*END Lists*/
-/*quotation*/
+
+
+
+
+/*------------------------------------*\
+    #Quotation
+\*------------------------------------*/
 
 blockquote,
 q {
-	quotes:none;
+    quotes:none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content:"";
-	content:none;
+    content:"";
+    content:none;
 }
 
-/*END quotation*/
-/*Table*/
+
+
+
+
+/*------------------------------------*\
+    #Tables
+\*------------------------------------*/
 
 table {
-	border-collapse:collapse;
-	border-spacing:0;
+    border-collapse:collapse;
+    border-spacing:0;
 }
 
-/*END Table*/
-/*Forms, inputs*/
+
+
+
+
+/*------------------------------------*\
+    #Forms
+\*------------------------------------*/
 
 input,
 select { 
-	vertical-align:middle; 
+    vertical-align:middle; 
 }
 
 button[disabled],
 input[disabled] {
-	cursor:default;
+    cursor:default;
 }
 
 textarea {
-	overflow:auto;
-	vertical-align:top;
+    overflow:auto;
+    vertical-align:top;
 }
 
-/*END Forms, inputs*/
-/*some other stuff / standard classes*/
+
+
+
+/*------------------------------------*\
+    #AudioVideo
+\*------------------------------------*/
 
 audio:not([controls]) {
-	/*prevent browsers from displaying <audio> without controls*/
-	display:none;
-	height:0;
+    /*prevent browsers from displaying <audio> without controls*/
+    display:none;
+    height:0;
 }
+
+
+
+
+/*------------------------------------*\
+    often used classes
+\*------------------------------------*/
 
 [hidden],
 .hidden {
-	display:none;
+    display:none;
 }
 
 .left {
-	float:left;
+    float:left;
 }
 
 .right {
-	float:right;
+    float:right;
 }
 
 .clear {
-	clear:both;
+    clear:both;
 }
 
-/*
-Why use clearfix?
-imagine the following markup:
-<article>
-	<div class="left">hello world</div>
-	<div class="right">lorem ipsum</div>
-</article>
-<article>
-	<div class="left">hello world</div>
-	<div class="right">lorem ipsum</div>
-</article>
+.fullWidth {
+    width:100%;
+}
 
-I want to add a top-margin to every article. The problem is that the article by default does not fit the height of its siblings because they're floating so adding a margin will cause problems. Adding .clearfix to every article solves that problem.
-*/
+.fullHeight {
+    height:100%;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #clearfix
+\*------------------------------------*/
+
 .clearfix:after {
-	content:".";
-	display:block;
-	clear:both;
-	visibility:hidden;
-	line-height:0;
-	height:0;
+    content:".";
+    display:block;
+    clear:both;
+    visibility:hidden;
+    line-height:0;
+    height:0;
 }
 
 .clearfix {
-	display:inline-block;
+    display:inline-block;
 }
 
 html[xmlns] .clearfix {
-	display:block;
+    display:block;
 }
 
 * html .clearfix {
-	height:1%;
+    height:1%;
 }
-
-/*END some other stuff / standard classes*/
