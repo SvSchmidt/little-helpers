@@ -241,3 +241,67 @@ QUnit.test("is(type,obj)",function() {
 function isArray(obj) {
 	return is("Array",obj);
 }
+
+/*------------------------------------*/
+
+/**
+ * Return a random item from an array
+ * @param  {Array} arr Array to get random item from
+ * @return {differs}     random item from array arr
+ */
+function arrayRand(arr) {
+	return arr[Math.floor(Math.random() * arr.length)];
+}
+
+/*------------------------------------*/
+
+/**
+ * Get a random number in the range specified by min and max
+ * @param  {Number} min minimum value
+ * @param  {Number} max maximum value
+ * @return {Number}     random number in the specified range
+ */
+function getRandomNumber(min,max) {
+	min = min || 0;
+	max = max || 100;
+
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/*------------------------------------*/
+
+/**
+ * create an array with a range of numbers from 0 to max
+ * @param  {Number} max
+ * @return {Array}
+ */
+function range(max) {
+	var arr = [];
+	max = max || 100;
+
+	for(var i = 1; arr.push(i++) < max;);
+	return arr;
+}
+
+/*------------------------------------*/
+
+/**
+ * unfortunately there's no PHP-like trim()-fn in JS
+ * which removes whitespace from a given String
+ * @return {String} Trimmed String
+ */
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g, "");
+};
+
+/*------------------------------------*/
+
+/**
+ * Empty an array
+ * @return {Array} empty array ([])
+ */
+Array.prototype.emptyArray = function() {
+	this.length = 0;
+};
+
+/*------------------------------------*/
