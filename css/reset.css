@@ -120,7 +120,7 @@ canvas {
 strong,
 b {
     font-weight:bold;
-    font-size:0.95em; /*for better readability*/
+    font-size:.95em; /*for better readability*/
 }
 
 em,
@@ -236,7 +236,7 @@ h6 {
 ul,
 ol {
     margin-left:4em;
-    padding:0.5em;
+    padding:.5em;
 }
 
 nav ul,
