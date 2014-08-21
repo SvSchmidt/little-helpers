@@ -7,11 +7,11 @@
                     That's why there's need as a developer to define a bunch of standard rules based on that ownesses 
                     as well as personal preferences to have a fixed status quo to start the developing process at and 
                     not to reinvent the wheel again and again.
- * @version         v2.1.0
+ * @version         v2.2.0
  * @author          Sven Schmidt
  * @licence         public
- * @date            2014/07/01
- * @changelog       added some standard classes (clearfix, left/right etc.), organized stuff in groups, removed                            deprecated elements, added some more reset based on personal preferences
+ * @date            2014/08/21
+ * @changelog       better formatting
  */
 
 /*------------------------------------*\
