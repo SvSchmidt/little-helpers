@@ -47,13 +47,6 @@ var testLocalStorage = function() {
     console.info('localStorage Usage: ' + (usage / 1024 / 1024).toFixed(10) + 'MB');
     console.info('localStorage remaining: ' + ((capacity - usage) / 1024 / 1024).toFixed(10) + 'MB');
 }
-        var amount = (localStorage[x].length * 2);
-        total += amount;
-        console.log( x + " = " + (amount / 1024 / 1024).toFixed(10));
-    }
-    
-    return total;
-}
 
 var testLocalStorage = function() {
     var usage = getLocalStorageUsage();
