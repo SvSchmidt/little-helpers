@@ -47,12 +47,3 @@ var testLocalStorage = function() {
     console.info('localStorage Usage: ' + (usage / 1024 / 1024).toFixed(10) + 'MB');
     console.info('localStorage remaining: ' + ((capacity - usage) / 1024 / 1024).toFixed(10) + 'MB');
 }
-
-var testLocalStorage = function() {
-    var usage = getLocalStorageUsage();
-    var capacity = getLocalStorageLimit();
-
-    console.info('localStorage Capacity: ' + (capacity / 1024 / 1024).toFixed(10) + 'MB');
-    console.info('localStorage Usage: ' + (usage / 1024 / 1024).toFixed(10) + 'MB');
-    console.info('localStorage remaining: ' + ((capacity - usage) / 1024 / 1024).toFixed(10) + 'MB');
-}
