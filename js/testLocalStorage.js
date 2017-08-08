@@ -11,21 +11,21 @@ function getStorageLimit (storage) {
   storage.clear();
 
   /* The idea is the following:
-   * try to store a very long string (100000000 bytes), and catch errors,
-   * then try again with 100000000 / 10 etc. until no error is thrown
+   * try to store a very long string (10000000 bytes), and catch errors,
+   * then try again with 10000000 / 10 etc. until no error is thrown
    */
   function interpolateLimit (step, startAt, endAt) {
       startAt = startAt || 0;
       step = step || 100000;
       endAt = endAt || 10000000;
 
-      let max = 100000000;
+      let max = 10000000;
 
       storage.clear();
 
       for (let i = startAt; i < endAt; i += step) {
           try {
-              storage.setItem('a', 'a'.repeat(i));
+              storage.setItem('test', 'a'.repeat(i));
           } catch (e) {
               if (step <= 1) {
                   max = i;
@@ -58,7 +58,7 @@ function getStorageUsage (storage) {
     let table = [];
     
     Object.keys(storage).forEach(k => {
-        const amount = storage[k].length + k.length;
+        const amount = storage[k].length /* data length */ + k.length /* key length */;
         
         total += amount;
         table.push({ k, amount: MiB(amount, 10) });
