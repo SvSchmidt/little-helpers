@@ -58,7 +58,7 @@ function getStorageUsage (storage) {
     let table = [];
     
     Object.keys(storage).forEach(k => {
-        const amount = localStorage[k].length + k.length;
+        const amount = storage[k].length + k.length;
         
         total += amount;
         table.push({ k, amount: MiB(amount, 10) });
