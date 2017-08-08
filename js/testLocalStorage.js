@@ -11,15 +11,15 @@ function getStorageLimit (storage) {
   storage.clear();
 
   /* The idea is the following:
-   * try to store a very long string (10000000 bytes), and catch errors,
-   * then try again with 10000000 / 10 etc. until no error is thrown
+   * try to store a very long string (100000000 bytes), and catch errors,
+   * then try again with 100000000 / 10 etc. until no error is thrown
    */
   function interpolateLimit (step, startAt, endAt) {
       startAt = startAt || 0;
       step = step || 100000;
       endAt = endAt || 10000000;
 
-      let max = 10000000;
+      let max = 100000000;
 
       storage.clear();
 
