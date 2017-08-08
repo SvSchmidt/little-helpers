@@ -26,7 +26,7 @@ function getStorageLimit (storage) {
       for (let i = startAt; i < endAt; i += step) {
           try {
               storage.setItem('a', 'a'.repeat(i));
-          } catch () {
+          } catch (e) {
               if (step <= 1) {
                   max = i;
               } else {
