@@ -58,7 +58,10 @@ function getStorageUsage (storage) {
     let table = [];
     
     Object.keys(storage).forEach(k => {
-        const amount = storage[k].length /* data length */ + k.length /* key length */;
+        const amount = (storage[k].length /* length of actual data */ 
+                        + k.length /* length of the key also taking storage*/)
+                          * 2 /* ECMAScript defines strings as array of 16 bit 
+                                 unicode; hence * 2 for number of regular 8 bit bytes */
         
         total += amount;
         table.push({ k, amount: MiB(amount, 10) });
